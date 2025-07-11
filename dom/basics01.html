@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>replit</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1>Todo list</h1>
-    <h4>1. Take class</h4>
-    <h4>2. Go out to eat</h4>
-    <div>
-      <input type="text"></input>
-      <button>Add Todo</button>
-    </div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <button onclick="addTodo()">Add Todo</button>
+</body>
+<script>
+  let ctr = 1;
+  function delTodo(index){
+    const ele = document.getElementById(index);
+    ele.parentNode.removeChild(ele);
+
+  }
+
+
+  function addTodo(){
+    const InputEle = document.querySelector("input");
+    const value = InputEle.value;
+    const divEle = document.createElement("div");
+    divEle.setAttribute("id",ctr);
+    divEle.innerHTML = "<div>" + value + "</div><button onclick = 'delTodo("+ctr+")'>Delete Button</button>"
+    ctr = ctr + 1
+    document.querySelector("body").appendChild(divEle)
+  }
+</script>
 </html>
