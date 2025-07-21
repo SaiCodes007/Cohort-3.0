@@ -61,12 +61,12 @@ app.get("/me", function(req,res){
             founduser = users[i]  
         }
     }
-    if (founduser){
+    if (founduser) {
         res.json({
             username: founduser.username,
             password: founduser.password
         })
-    } else {
+    }else {
         res.json({
             message: "token invalid"
         })
